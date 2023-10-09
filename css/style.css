@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css?family=Hepta+Slab:400,700|Lato:400,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:#EEE;
+    font-family:'Lato', Helvetica, Arial;
+    font-size:15px;
+    display:flex;
+    margin:0;
+    min-height:100vh;
+}
+
+.models {
+    display:none;
+}
+
+header {
+    position: fixed;
+    left:0;
+    top:0;
+    right:0;
+    height:60px;
+    background-color:#000000;
+    display:flex; /* none; */
+    justify-content:space-between; /* flex-end; */
+    align-items: center;
+}
+
+header h1 {
+    margin-left: 1rem;
+    color: #fff;
+}
+
+.menu-openner {
+    margin-right: 15px;
+    font-size: 26px;
+    background-color: #ffee00;
+    padding: 5px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.menu-openner span {
+    margin-right:10px;
+}
+
+.menu-closer {
+    width:32px;
+    height:32px;
+    display:none;
+    font-size: 30px;
+}
+
+aside{
+    background-color:lightgrey;
+    width:0vw;
+    font-family:'Hepta Slab', Helvetica, Arial;
+    transition:all ease .2s;
+    overflow-x:hidden;
+}
+
+aside.show {
+    width:30vw;
+}
+
+.cart-area {
+    margin-top: 30px; 
+    padding:20px;
+}
+
+.cart-area h1 {
+    display: relative;
+}
+
+main {
+    flex:1;
+    padding:20px;
+    margin-top:60px;
+}
+
+h1, h2 {
+    font-family:'Hepta Slab', Helvetica, Arial;
+    text-align: center;
+}
+
+.hamburguer-area {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hamburguer-item {
+    text-align: center;
+    max-width:250px;
+    font-family:'Hepta Slab', Helvetica, Arial;
+    margin:0 auto 50px auto;
+}
+
+.hamburguer-item a {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    text-decoration: none;
+}
+
+.hamburguer-item--img {
+    width:200px;
+    height:200px;
+    background-color:#EEE;
+    border-radius:100px;
+    box-shadow:0px 10px 50px rgba(0, 0, 0, 0.2);
+}
+
+.hamburguer-item--img img {
+    width:100%;
+    height:auto;
+}
+
+.hamburguer-item--add {
+    width:50px;
+    height:50px;
+    line-height:50px;
+    border-radius:25px;
+    background-color:#ffee00;
+    text-align:center;
+    color:#030302;
+    font-size:22px;
+    cursor:pointer;
+    margin-top:-25px;
+    transition:all ease .2s;
+}
+
+.hamburguer-item a:hover .hamburguer-item--add {
+    background-color:#000000;
+    color: #ffee00;
+}
+
+.hamburguer-item--price {
+    font-size:15px;
+    color:#333;
+    margin-top:5px;
+}
+
+.hamburguer-item--name {
+    font-size:20px;
+    font-weight: bold;
+    color:#000;
+    margin-top:5px;
+}
+
+.hamburguer-item--desc {
+    font-size:13px;
+    color:#555;
+    margin-top:10px;
+}
+
+.hamburguerWindowArea {
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+    background-color:rgba(255, 255, 255, 0.5);
+    display:none;
+    transition: all ease .5s;
+    justify-content: center;
+    align-items: center;
+    overflow-y:auto;
+}
+
+.hamburguerWindowBody {
+    width:1000px;
+    background-color:#FFF;
+    border-radius:10px;
+    box-shadow:0px 0px 15px #999;
+    display:flex;
+    margin:20px 0px;
+}
+
+.hamburguerBig {
+    flex:1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*.pizzaBig--back {
+    position:absolute;
+    width:30px;
+    height:30px;
+    background-color:#000;
+}*/
+
+.hamburguerBig img {
+    height:400px;
+    width:auto;
+}
+
+.hamburguer-info {
+    flex:1;
+    font-family:'Hepta Slab', Helvetica, Arial;
+    padding-bottom:50px;
+}
+
+.hamburguer-info h1 {
+    margin-top:50px;
+}
+
+.hamburguer-info .hamburguer-info-desc {
+    font-size:15px;
+    color:#999;
+    margin-top:10px;
+    font-family:'Lato',Helvetica,Arial;
+}
+
+.hamburguer-info-sector {
+    color:#CCC;
+    text-transform: uppercase;
+    font-size:14px;
+    margin-top:30px;
+    margin-bottom:10px;
+}
+
+.hamburguer-info-sizes {
+    display:inline-flex;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.hamburguer-info-size {
+    padding:10px 15px;
+    color:#000;
+    background-color:#EEE;
+    font-size:13px;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.hamburguer-info-size:hover {
+    background-color:#CCC;
+}
+
+.hamburguer-info-size.selected {
+    background-color:#0a0a07;
+    color:#ffffff;
+}
+
+.hamburguer-info-size.selected span {
+    color:#D6D6D6;
+}
+
+.hamburguer-info-size span {
+    font-size:12px;
+    color:#999;
+    font-weight: normal;
+}
+
+.hamburguer-info-price {
+    display:flex;
+    align-items:center;
+}
+
+.hamburguer-info-actualPrice {
+    font-size:28px;
+    margin-right:30px;
+}
+
+.hamburguer-info-qtArea {
+    display:inline-flex;
+    background-color:#EEE;
+    border-radius:10px;
+    height:30px;
+}
+
+.hamburguer-info-qtArea button {
+    border:0;
+    background-color:transparent;
+    font-size:17px;
+    outline:0;
+    cursor:pointer;
+    padding:0px 10px;
+    color:#333;
+}
+
+.hamburguer-info--qt {
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0px 5px;
+    color:#000;
+}
+
+.hamburguer-info-addButton {
+    margin-top:30px;
+    padding:20px 30px;
+    border-radius:20px;
+    background-color:#48d05f;
+    color:#FFF;
+    display:inline-block;
+    cursor:pointer;
+    margin-right:30px;
+}
+
+.hamburguer-info-addButton:hover {
+    background-color:#32a345;
+}
+
+.hamburguer-info-cancelButton {
+    display:inline-block;
+    cursor:pointer;
+}
+
+.hamburguerInfo--cancelmobilebutton {
+    display:none;
+    height:40px;
+    text-align:center;
+    line-height: 40px;
+    margin-bottom:30px;
+}
+
+.cart {
+    margin-bottom:20px;
+}
+
+.cart--item {
+    display:flex;
+    align-items:center;
+    margin:10px 0;
+}
+
+.cart--item img {
+    width:100px;
+    height:70px;
+    margin-right:20px;
+}
+
+.cart--item-nome {
+    flex:1;
+}
+
+.cart--item--qtarea {
+    display:inline-flex;
+    background-color:#EEE;
+    border-radius:10px;
+    height:30px;
+}
+
+.cart--item--qtarea button {
+    border:0;
+    background-color:transparent;
+    font-size:17px;
+    outline:0;
+    cursor:pointer;
+    padding:0px 10px;
+    color:#333;
+}
+
+.cart--item--qt {
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0px 5px;
+    color:#000;
+}
+
+.cart-totalitem {
+    padding:15px 0;
+    border-top:1px solid #000000;
+    color:#315970;
+    display:flex;
+    justify-content: space-between;
+    font-size:15px;
+}
+
+.cart-totalitem span:first-child {
+    font-weight: bold;
+}
+
+.cart-totalitem.big {
+    font-size:20px;
+    color:#000;
+    font-weight: bold;
+}
+
+.cart--finalizar {
+    padding:20px 30px;
+    border-radius:20px;
+    background-color:#48d05f;
+    color:#FFF;
+    cursor:pointer;
+    text-align:center;
+    margin-top:20px;
+    border:2px solid #63f77c;
+    transition: all ease .2s;
+}
+
+.cart--finalizar:hover {
+    background-color:#35af4a;
+}
+
+@media (max-width:1000px) {
+    .hamburguer-area {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:840px) {
+    body {
+        flex-direction: column;
+    }
+    .hamburguer-area {
+        display:block;
+    }
+    .hamburguer-item {
+        max-width:100%;
+    }
+    header {
+        display:flex;
+    }
+    /*
+    main {
+        padding-top:60px;
+    }
+    */
+    aside {
+        width:auto;
+        position:fixed;
+        left:100vw;
+        right:0;
+        top:0;
+        bottom:0;
+        transition: all ease .2s;
+    }
+    aside.show {
+        width:auto;
+    }
+    .cart--area {
+        width:100vw;
+    }
+
+    .menu-closer {
+        display:block;
+    }
+
+    .hamburguerWindowArea {
+        justify-content:flex-start;
+        align-items: flex-start;
+    }
+
+    .hamburguerWindowBody {
+        width:100vw;
+        display:block;
+        padding:20px;
+        border-radius:0;
+        box-shadow:none;
+        margin:0;
+    }
+
+    .hamburguerBig img {
+        width: 75%;
+        height: auto;
+    }
+
+    .hamburguer-info h1 {
+        margin-top:20px;
+    }
+
+    .hamburguer-info-qtArea {
+        height:60px;
+    }
+    
+    .hamburguer-info-qtArea button {
+        font-size:25px;
+        padding:0px 25px;
+    }
+
+    .hamburguer-info--qt {
+        line-height: 60px;
+        font-size:20px;
+    }
+
+    .hamburguer-info-addButton {
+        font-size:20px;
+        display:block;
+        text-align:center;
+        margin:30px auto;
+    }
+
+    .hamburguer-info-cancelButton {
+        display:none;
+    }
+
+    .hamburguerInfo--cancelmobilebutton{
+        display:block;
+    }
+
+}
+
+@media (max-width:450px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .menu-openner {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:380px) {
+    header h1 {
+        font-size: 1rem;
+    }
+    .menu-openner {
+        font-size: 1.5rem;
+    }
+}
+
+#img-logo {
+    width: 50px;
+}
+.ajuste{
+    display:inline-flex;
+}

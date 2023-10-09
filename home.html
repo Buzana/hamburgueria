@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ana's Burger  </title>
+    <link rel="icon" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="css/style3.css">
+</head>
+<body>
+    <header>
+    </header>
+
+    <div class="container">
+        <div class="container2">
+            <div class="tituloBotao">
+                <h1>Seja bem-vindo ao Ana's Burguer!</h1>
+                <h3>Sinta o melhor da carne wagyu no conforto de sua casa!</h3>
+                <input type="button" id="botao5" value="Quero conhecer os melhores burguers!" onclick="funcao1()">
+            </div>
+
+            <div class="carrossel">
+                <div class="container3" id="img" >
+                    <img src="https://super.abril.com.br/wp-content/uploads/2017/03/bigmac.png?w=1024&h=682&crop=1">
+                    <img src="https://www.infomoney.com.br/wp-content/uploads/2019/06/mcdonalds-quarteirao.jpg?resize=900%2C515&quality=50&strip=all" alt="">
+                    <img src="https://s7d1.scene7.com/is/image/mcdonalds/DC_202006_0780_TripleCheeseburger_Alt_832x472:1-3-product-tile-desktop?wid=765&hei=472&dpr=off" alt="">
+                    <img src="https://pbs.twimg.com/media/BwxrdKkIEAAnJR5.png" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+        const imgs = document.getElementById('img');
+        const img = document.querySelectorAll('#img img');
+
+        let idx = 0;
+
+        function carrossel(){
+            idx++;
+            if(idx > img.length - 1){
+                idx = 0;
+            }
+
+
+            imgs.style.transform = `translateX(${-idx * 600}px)`;
+        }
+
+        setInterval(carrossel, 1900);
+
+        function funcao1(){
+            window.location.assign("hamburguer.html");
+        }
+
+    </script>
+</body>
+</html>

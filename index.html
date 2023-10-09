@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ana's Burger  </title>
+    <link rel="icon" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+    <header>
+    </header>
+
+    <div class="container">
+        <div class="login">
+            <form action="">
+
+                <div class="titulo">                <p>Insira seu email para ficar dentro das novidades e acessar nosso site!</p></div>
+                <input type="text" id="email">                
+                <input type="button" id="botao" value="Entrar" onclick="funcao()">
+            </form>
+        </div>
+
+    </div>
+    
+    <div class="container2">
+        
+        <div class="confirma">
+            <p>Insira o código enviado ao seu email para confirmarmos que é você!</p>
+            <input type="number" id="num1">    
+            <input type="number" id="num2">    
+            <input type="number" id="num3">    
+            <input type="number" id="num4">    
+            <br>
+            <div class="alinharbotao">
+                <input type="button" id="botao2" value="Confirmar" onclick="funcao2()">
+            </div>
+
+            <div id="erro"></div>
+
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+    const seleciona = (elemento) => document.querySelector(elemento);
+
+        function funcao(){
+            var email = document.getElementById('email');
+
+            if(email.value == "email@exemplo.com"){
+                seleciona('.confirma').style.display = 'block'
+            }
+            }
+        
+        function funcao2(){
+            var num1 = document.getElementById('num1').value;
+            var num2 = document.getElementById('num2').value;
+            var num3 = document.getElementById('num3').value;
+            var num4 = document.getElementById('num4').value;
+
+            if(num1 == 2 && num2 == 3 && num3 == 4 && num4 == 8){
+                window.location.assign("home.html");
+            }else{
+                document.getElementById('erro').innerHTML = "Código errado! Tente novamente...";
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>

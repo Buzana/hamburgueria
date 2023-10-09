@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ana's Burger  </title>
+    <link rel="icon" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="css/style4.css">
+</head>
+<body>
+    <header><h1>Ana's Burguer</h1></header>
+
+    <h2>Entrega à domicílio</h2>
+    <h3>Só aceitamos cartão de crédito!</h3>
+<div class="container">
+    <div class="formulario">
+        <h4>Por favor, preencha seus dados:</h4>
+        <input type="text" placeholder="Número do cartão" id="texto1">
+        <input type="text" placeholder="CPF títular" id="texto">
+        <input type="text" placeholder="Nome no cartão" id="texto">
+        <div class="menores">
+            <input type="text" placeholder="CVV" id="textoMenor">
+            <input type="text" placeholder="Data de validade" id="textoMenor">
+        </div>
+        <input type="text" placeholder="CEP" id="texto">
+        <div class="menores">
+            <input type="text" placeholder="N casa ou apto" id="textoMenor">
+            <input type="text" placeholder="Complemento" id="textoMenor">
+        </div>
+        <div class="radios">
+            <input type="radio" name="entrega1" class="textoRadio">Entrega rápida R$:50,00
+            <input type="radio" name="entrega2" class="textoRadio">Entrega normal R$:20,00
+        </div>
+
+
+        <input type="button" onclick="funcao1()" value="Finalizar compra" id="botao">
+    </div>
+</div>
+
+<script>
+    function funcao1(){
+        var x = confirm("Compra realizada com sucesso, olhe seu email para mais informações!");
+
+        if(x == true){
+            window.location.assign("home.html");
+        }
+    }
+</script>
+
+</body>
+</html>
